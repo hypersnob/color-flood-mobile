@@ -6,7 +6,7 @@ import {
   getFinalMessage,
   updateField,
 } from "@/utils";
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useState } from "react";
 import { View, StyleSheet, Text, Button, Pressable, Modal } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
@@ -39,10 +39,9 @@ const styles = StyleSheet.create({
   centeredView: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center",
   },
   modalView: {
-    margin: 10,
+    margin: 16,
     backgroundColor: "white",
     padding: 16,
     rowGap: 10,
@@ -57,9 +56,8 @@ export default function Index() {
   const [count, setCount] = useState<number>(0);
   const [isInfoVisible, setIsInfoVisible] = useState<boolean>(false);
 
-  const isDone = useMemo(
-    () => field.every((row) => row.every((color) => color === field[0][0])),
-    [field]
+  const isDone = field.every((row) =>
+    row.every((color) => color === field[0][0])
   );
 
   const currentColor = field[0][0];
@@ -147,9 +145,10 @@ export default function Index() {
             <Text style={{ fontWeight: "bold" }}>Color Flood</Text>
             <Text>
               The goal of the game is to fill the entire field with one color in
-              the minimum number of steps. The field is filled from the upper
-              left edge. Good luck!
+              the minimum number of steps.
             </Text>
+            <Text>The field will be filled from the upper left edge.</Text>
+            <Text>Good luck!</Text>
           </View>
         </View>
       </Modal>

@@ -2,7 +2,7 @@ export type Color = "YELLOW" | "GREEN" | "BLUE" | "VIOLET" | "PINK" | "RED";
 export type Field = Color[][];
 
 const COLORS: Color[] = ["YELLOW", "GREEN", "BLUE", "VIOLET", "PINK", "RED"];
-const SIZE = 2;
+const SIZE = 14;
 
 export const colorMap: Record<Color, string> = {
   YELLOW: "#CFCF77",
